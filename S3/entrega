@@ -1,0 +1,9 @@
+⚠️PREGUNTA 18.¿Cómo puede saber un proceso el pid de sus hijos? ¿Qué llamada pueden utilizar los procesos para consultar su propio PID?
+
+Para saber que un proceso es hijo, hay que declar un variable de la hora de hacer fork(), el valor de esta función es 0 en el proceso del hijo y diferente de 0 cuando esta en el proceso del padre. Y para consultar el pid de cada proceso solo have falta llamar a la función getpid().
+
+⚠️PREGUNTA 19.¿En qué casos se ejecutará cualquier código que aparezca justo después de la llamada execlp (En cualquier caso/ En caso que el execlp se ejecute de forma correcta/ En caso que el exclp falle)?
+
+El codigo que se situa despues del execlp solo ejecutara si esa llamada falle.
+
+

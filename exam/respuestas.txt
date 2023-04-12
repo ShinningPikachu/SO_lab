@@ -1,0 +1,6 @@
+¿En  qué  orden  se  van  a  escribir  los  mensajes  de  todos  los  wc  ejecutados?  ¿Podemos 
+garantizar  que  será  siempre  el  mismo?  Justifica  tu  respuesta  en  un  fichero  de  texto  llamado 
+“respuestas.txt”.
+
+Los hijos imprime los wc casi sin ningún orden, no podemos garantizar el orden de escriptura ya que el tiempo de ejecución
+puede variar cada porceso. 

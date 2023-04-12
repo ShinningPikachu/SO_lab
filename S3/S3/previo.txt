@@ -1,0 +1,44 @@
+ejemplo_fork1:
+Soy el proceso 6207 ->proceso del padre, ya que tiene un pid menor
+Soy el proceso 6208 ->porceso del hijo, ya que tiene un pid mayor
+
+ejemplo_fork2:
+Antes del fork: Soy el proceso 6235 ->proceso del padre
+PADRE: Soy el proceso 6235 ->proceso del padre que esta redireccionado por la función switch apartir del pid
+Los DOS: Soy el proceso 6235
+HIJO: Soy el proceso 6236 -> proceso del padre que esta redireccionado por la función switch  apartir del pid
+Los DOS: Soy el proceso 6236
+
+ejemplo_fork3:
+Antes del fork: Soy el proceso 6254 -> proceso del padre
+PADRE: Soy el proceso 6254 ->proceso del padre despues de la función fork
+Solo lo ejecuta el padre: Soy el proceso 6254 ->finaliza el proceso del padre
+HIJO: Soy el proceso 6255 ->proceso del hijo, y finaliza con la función exit
+
+ejemplo_fork4:
+Aparece primero los procesos del padre y despues los del hijo, el proceso del padre acaba antes
+
+ejemplo_fork5:
+Antes del fork: Soy el proceso 6288 ->proceso del padre
+PADRE: Soy el proceso 6288 ->proceso del padre despues de hacer el fork
+HIJO: Soy el proceso 6289 ->proceso del hijo despues del fork
+HIJO:La variable_global vale A y la local a ->el hijo hereda los valores del proceso padre
+PADRE:La variable_global vale A y la local a ->el proceso del padre espera que hijo muera para seguir con la función waitpid.
+Solo lo ejecuta el padre: Soy el proceso 6288
+
+ejemplo_fork6:
+El contenido del documento de salida indica el valor de un variable_global en el proceso padre y hijo.
+El contenido atrás ejecutar varias veces la programma siempre es diferente ya que cada veces puede variar el tiempo de ejectución en los dos procesos.
+
+ejemplo_fork7:
+El programa no compila ya que en la función Escribe_variables() existe una variable que no esta declarado dentro de la función, para poder escriber el variable local habrá que pasarlo por valor en la función.
+
+ejemplo_exec1:
+El porgrama escribe las informaciones de los documentos que estan situado en el mismo directorio
+El pid del proceso solo aparece una vez ya solo hay el proceso del padre.
+
+ejemplo_exec2:
+El progrema ejecuta la programa "ejemplo_fork1", por lo tanto ejecuta el propio programa y los procesos del ejemplo_fork1.
+
+Consulta man:
+He consultado sobretodo funciones de la libreria unistd.h y sys/types.h que hace el control de procesos.

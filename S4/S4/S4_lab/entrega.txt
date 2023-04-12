@@ -1,0 +1,9 @@
+PREGUNTA 28.¿Qué le pasa al padre ahora cuando le llega el evento SIGALRM?
+
+El padre al recibir el evento SIGALRM acaba su proceso y deja solo el hijo continuar con el contador.
+
+PREGUNTA 29.¿Qué pasa con la tabla de tratamientos de signals si hacemos un execlp (y cambiamos el código)? ¿Se mantiene la reprogramación de signals? ¿Se pone por defecto? 
+
+Al mutar en otro programa, la tabla de tratamiento restablece, por lo tanto el hijo al recibir el segnal de alarm muere.
+
+

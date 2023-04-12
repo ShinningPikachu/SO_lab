@@ -1,0 +1,56 @@
+-¿Es posible saber la dirección de las variables “i” y “j” con el comando nm? ¿Por qué?
+¿En qué zona de memoria están reservadas estas variables? Busca también la
+dirección asignada a la función “suma.
+
+El variable global 'j' está situado en la dirección 0000000000004014 y 'i' al ser variable local esta guardado en stack, apartir de la dirección 0000000000003f98. La función 'suma' está situado en la dirección 00000000000011c9.
+
+-Utiliza el comando gcc para compilar el fichero mem1_previo.c enlazándolo con librerías
+estáticas. Indica en el fichero “previo.txt” qué comando has utilizado
+
+Para compilar el fichero con la librería estática he usado "gcc -static -o mem1_previo_v2.x mem1_previo_v2.c"
+
+- La región del heap esta etiquetada como [heap] pero
+la región de datos está etiquetada con el nombre del ejecutable. Deberás deducir cual
+es (hay varias) por los permisos de la región. ¿Existe alguna diferencia entre los
+distintos valores de las ejecuciones de ambos programas?
+
+
+Sí que hay diferencia. En mem2_previo el heap tiene el mismo tamaño para i = 10 e y = 40000, ya que el vector no depende de la variable.
+En mem2_previo el vector creado depende de la variable y, por tanto, el tamaño será distinto.
+
+mem2_previo (i=10)
+00400000-004b1000 r-xp 00000000 00:00 38155                      /home/FIBer/Desktop/S5/mem2_previo.x
+004b1000-004b2000 r-xp 000b1000 00:00 38155                      /home/FIBer/Desktop/S5/mem2_previo.x
+006b1000-006b4000 rw-p 000b1000 00:00 38155                      /home/FIBer/Desktop/S5/mem2_previo.x
+006b4000-006de000 rw-p 00000000 00:00 0
+021f7000-0221a000 rw-p 00000000 00:00 0                          [heap]
+Tamaño del heap: 0x0221a000-0x021f7000 = 0x23000
+
+mem2_previo (i=40000)
+00400000-004b1000 r-xp 00000000 00:00 38155                      /home/FIBer/Desktop/S5/mem2_previo.x
+004b1000-004b2000 r-xp 000b1000 00:00 38155                      /home/FIBer/Desktop/S5/mem2_previo.x
+006b1000-006b4000 rw-p 000b1000 00:00 38155                      /home/FIBer/Desktop/S5/mem2_previo.x
+006b4000-006de000 rw-p 00000000 00:00 0
+021f7000-0221a000 rw-p 00000000 00:00 0                          [heap]
+Tamaño del heap: 0x0221a000-0x021f7000 = 0x23000
+
+mem2_previo_v2 (i=10)
+00400000-004b1000 r-xp 00000000 00:00 38156                      /home/FIBer/Desktop/S5/mem2_previo_v2.x
+004b1000-004b2000 r-xp 000b1000 00:00 38156                      /home/FIBer/Desktop/S5/mem2_previo_v2.x
+006b1000-006b4000 rw-p 000b1000 00:00 38156                      /home/FIBer/Desktop/S5/mem2_previo_v2.x
+006b4000-006b6000 rw-p 00000000 00:00 0
+006ec000-00710000 rw-p 00000000 00:00 0                          [heap]
+Tamaño del heap: 0x00710000-0x006ec000 = 0x24000
+
+mem2_previo_v2 (i=40000)
+00400000-004b1000 r-xp 00000000 00:00 38156                      /home/FIBer/Desktop/S5/mem2_previo_v2.x
+004b1000-004b2000 r-xp 000b1000 00:00 38156                      /home/FIBer/Desktop/S5/mem2_previo_v2.x
+006b1000-006b4000 rw-p 000b1000 00:00 38156                      /home/FIBer/Desktop/S5/mem2_previo_v2.x
+006b4000-006b6000 rw-p 00000000 00:00 0
+00fc1000-00fee000 rw-p 00000000 00:00 0                          [heap]
+Tamaño del heap: 0x00fee000-0x00fc1000 = 0x4B000
+
+
+Sí que hay diferencia. En mem2_previo el heap tiene el mismo tamaño para i = 10 y i = 10000 ya que el tamaño del vector no depende de la variable.
+En mem2_previo el vector creado depende de la variable y, por lo tanto, el tamaño será distinto.
+

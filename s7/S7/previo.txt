@@ -1,0 +1,49 @@
+
+¿Qué valor devuelve la llamada read después de pulsar el ^D?
+	Devuelve 0 en el caso de encontrar un EOF.
+
+
+Crea un fichero con un editor de texto cualquiera y lanza el programa ./es1 asociando mediante la shell su entrada estándar a ese fichero. Apunta el comando utilizado en el fichero “previo.txt”.
+	./es1 < entrada.txt
+
+
+¿Cuál es el resultado? ¿Qué operación realiza el comando ‘grep es’?
+	-rwxrwxr-x 1 jinheng jinheng 16880 Nov 23 10:15 es1
+	-rw-r--r-- 1 jinheng jinheng  1170 Feb  8  2021 es1.c
+	-rwxrwxr-x 1 jinheng jinheng 17032 Nov 23 10:15 es2
+	-rw-r--r-- 1 jinheng jinheng  1700 Feb  8  2021 es2.c
+	-rwxrwxr-x 1 jinheng jinheng 16880 Nov 23 10:15 es3
+	-rw-r--r-- 1 jinheng jinheng   943 Feb  8  2021 es3.c
+	-rwxrwxr-x 1 jinheng jinheng 16792 Nov 23 10:15 es4
+	-rw-r--r-- 1 jinheng jinheng  1206 Feb  8  2021 es4.c
+	-rwxrwxr-x 1 jinheng jinheng 16464 Nov 23 10:15 es5
+	-rw-r--r-- 1 jinheng jinheng    31 Feb  8  2021 es5.c
+	-rwxrwxr-x 1 jinheng jinheng 16792 Nov 23 10:15 es6
+	-rw-r--r-- 1 jinheng jinheng   112 Feb  8  2021 es6.c
+	-rwxrwxr-x 1 jinheng jinheng 16744 Nov 23 10:15 es7
+	-rw-r--r-- 1 jinheng jinheng   107 Feb  8  2021 es7.c
+	-rw-rw-r-- 1 jinheng jinheng   125 Nov 23 14:20 es7_lector.c
+	-rwxrwxr-x 1 jinheng jinheng 16840 Nov 23 10:15 es8
+	-rw-r--r-- 1 jinheng jinheng   644 Feb  8  2021 es8.c
+
+    grep muestra las líneas de texto que contienen "es" de la salida generada por el comando "ls -l".
+
+
+Ejecuta un pipeline que muestre en la salida estándar el PID, el usuario y el nombre de todos los procesos bash que se están ejecutando en el sistema. Para ello utiliza los comandos ps y grep combinados con una pipe. Anota el comando en el fichero “previo.txt”.
+	ps -A | grep bash
+
+
+En el caso del dispositivo lógico terminal (o consola), el device driver que lo gestiona interpreta todos los bytes que se quieren escribir como códigos ASCII, mostrando el carácter correspondiente. El fichero es8.c contiene un programa que escribe dos veces un número por salida estándar: una usando la representación interna de la máquina y otra convirtiendo antes el número a string. Compílalo y ejecútalo. ¿Cuántos bytes se escriben en cada caso? ¿Qué diferencias observas en lo que aparece en pantalla?
+	En el primer caso se escriben 4 bytes y en el segundo se escriben 5 bytes. En el primer caso se interpreta el entero en hexadecimal como un string. En cambio, en el segundo se convierte el 	entero a string.
+
+
+¿Qué función sirve para implementar el read específico del dispositivo gestionado por cada device driver?
+	En el caso de myDriver1 usamos la función read_driver_1. Para myDriver2 se usa read_driver_2.
+
+
+¿Qué son el major y el minor? ¿Para qué sirven? ¿Qué major y minor utilizan los dos device drivers?
+	El major identifica el tipo de driver y el minor identifica la instancia concreta.
+	En este caso, myDriver1 y myDriver2 usan los siguientes valores:
+		myDriver1: Major 249, Minor 0
+		myDriver2: Major 250, Minor 0
+

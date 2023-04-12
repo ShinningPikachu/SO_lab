@@ -1,0 +1,6 @@
+Qué opción has tenido que añadir al gcc para generar el fichero objecto? ¿Qué opción has tenido que añadir al gcc para que el compilador encuentre el fichero
+mis_funciones.h?
+Para poder generar el fichero objeto, he tenido que añadir el codigo 'gcc -c mis_funciones.c -o misfunciones.o' para despues juntarlo con el fichero suma.c
+con el codigo 'gcc -c suma suma.c mis_funciones.o'.
+Para que el compilador sea capaz de encontrar el documento mis_funciones.h, hay que indicar explicitamente junto al inicio del makefile 
+'suma: suma.c mis_funciones.c misfunciones.h'

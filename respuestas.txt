@@ -1,0 +1,10 @@
+Ejecutad el script dir.sh que os hemos facilitado. Si examináis su código veréis que crea una
+estructura de directorios y muestra el resultado de ejecutar ls -la. Explicad justificadamente en
+el fichero respuestas.txt los valores numéricos mostrados en la segunda columna del
+resultado (correspondiente al número de enlaces físicos a cada fichero).
+
+Los valores numericos que muestran en la segunda columna es un valor indentificativo que referencia a cada directorio que tenga acceso desde
+un directorio determinado, son los inodo.
+
+¿podéis garantizar que el último mensaje será “ ended correctly”?
+No, ja que mentre esta exacutant la funcio que permet imprimir el missatge correcte i matar els fills, pot surtir missatges dels altres fillis.

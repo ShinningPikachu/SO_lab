@@ -1,0 +1,17 @@
+¿Qué comandos habeís utilizado para crear los directorios S1...S5?
+mkdir
+¿Qué comando utilizas para listar el contenido de un directorio? ¿Qué opción
+hay que añadir para ver los ficheros ocultos?
+El comando para listar el contenido de un directorio es 'ls' y para ver los ficheros ocultos solo falta añadir un parámetro 'a' es decir 'ls -a'.
+¿Qué opción hay que añadir a ls para ver información extendida de los ficheros?¿Qué campos se ven por defecto con esa opción?
+Para ver informaciones extendidas del fichero hace falta añadir parámetros despues del comando 'ls' y en el manual de 'ls' apartado de descripción aparece todos los opciones posibles.
+¿Qué opciones de menú has activado para extender la información que muestra
+el File Browser?
+Para extender la informacion que muestra en File Browser he activado el tipo y el tiempo de modificación.
+¿Qué secuencia de comandos has ejecutado para borrar un directorio,comprobar que no está y volver a crearlo?
+rmdir
+¿Qué diferencia hay entre el comando cat y less?
+El comando 'cat' muestra todo el contenido del fichero en la ventana de shell pero 'less' solo abre una pantalla auxiliar y para ver los contenidos hay que usar diferentes comandos del teclado
+¿Para qué sirve la opción -i del comando cp? ¿Cuál es la orden para hacer un alias del comando cp que incluya la opción -i?
+La opción del comando cp pregunta si sobreescribe el fichero con el mismo nombre y para hacer un alias del comando cp con la opción -i hay que hacer 'alias cp='cp -i''.
+

@@ -1,0 +1,177 @@
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+void error_y_exit (char *msg, int exit_status)
+{
+  perror (msg);
+  exit (exit_status);
+}
+
+void Usage() {
+
+    char buf[80];
+
+    sprintf(buf, "Usage:listaParametros arg1 [arg2..argn]\n");
+    write(1,buf,strlen(buf));
+
+    sprintf(buf, "Este programa escribe por su salida la lista de argumentos que recibe\n");
+    write(1,buf,strlen(buf));
+    exit(0);
+}
+
+
+int main (int argc, char *argv[]) {
+
+}
+
+
+//SIGNALS
+
+sigset_t mask;
+sigemptyset (&mask);
+sigaddset (&mask, SIGALRM);
+
+
+sigprocmask (SIG_BLOCK, &mask, NULL); 
+//mascara para bloquear los signals
+
+//REPROGRAMAR SIGNALS
+struct sigaction sa,sb;
+sa.sa_handler = &tratar_hijo;
+sa.sa_flags = SA_RESTART;
+sigfillset(&sa.sa_mask);
+
+sigaction(SIGALRM, sa, NULL);
+
+//ESPERA BLOQUEANTE
+sigfillset (&mask);
+sigdelset (&mask, SIGALRM);
+sigdelset (&mask, SIGINT);
+sigdelset (&mask, SIGUSR1);
+sigsuspend (&mask);
+
+pid_hijo = waitpid(-1,&exit_code,0)) > 0 
+
+
+
+
+
+
+
+int tratar_exit (int exit_code){
+    int statcode,signcode;
+    char buffer[120];
+    if (WIFEXITED(exit_code)) {
+        statcode = WEXITSTATUS(exit_code);
+        sprintf(buffer,"El proceso %d termina con exit code %d\n", getpid(),
+        statcode);
+        write(1,buffer,strlen(buffer));
+        return 1;
+
+    }
+    else {
+        signcode = WTERMSIG(exit_code);
+        sprintf(buffer,"El proceso %d termina por el signal %d\n", getpid(),
+        signcode);
+        write(1,buffer,strlen(buffer));
+        return 0;
+    }
+}
+
+
+
+
+struct sigaction sa;
+
+sa.sa_handler = &tratar_hijo;
+sa.sa_flags = SA_RESTART;
+sigfillset(&sa.sa_mask);
+
+
+while (waitpid(-1,&exit_code,0) > 0);
+
+
+int *s = malloc(sizeof(int))
+free(s);
+
+
+int *t = srbk();
+int g = brk(t);
+
+
+
+.text --- codigo
+.data --- datos globales inicializados
+.bss --- datos globales sin valor inicial
+.debug --- información de debug
+.comment --- información de control
+.dynamic --- información para enlacce dinámico
+.init --- código de inicialización del proceso 
+
+stack -> variables locales, parámetros y control de ejecucución
+heap -> memoria dinámica
+datos -> variables globales
+codigo 
+
+
+exelp("./program", "./program", "parametros", (char*)NULL);
+
+
+Canales:
+
+fd = open(n, acces_mode, permission_flag);
+N-> nom de ficher
+acces_mode:
+O_RDONLY --- read only
+O_WRONLY --- write only
+O_RDWR --- write and read
+O_CREAT --- if not exits creat
+O_TRUNC --- clear data
+
+permission_flag:
+S_IRWXU --- permission read and write
+S_IRUSR --- permission read
+S_IWURS --- permission write
+
+n = read(fd, buffer, count);
+n -> num bytes llegit
+fd -> canal
+buffer -> punter de memoria que conte bytes llegits
+count -> num bytes a llegir
+
+n = write(fd, buffer, counter);
+n -> num bytes escrits
+fd -> canal
+buffer -> punter de memoria d'on copiar les dades
+count -> num bytes a escriure
+
+newfd = dup(fd); //duplicar un canal
+newfd -> id del nou canal
+fd -> canal a duplicar, existeix previament
+
+newfd = dup2(fd, newfd);
+newfd tanca i newfd = fd;
+
+close(fd); allibera canal fd;
+
+pipe(fd_vector); pipe sense nom
+fd_vector[0]
+
+mknod + open -> pipe amb nom
+
+nova_posicio = lseek(fd, desplaçament, relatiu_a);
+relatiu_a:
+SEEK_SET:posicio_i/e = desplaçament
+SEEK_CUR:posicio_i/e = posicio_i/e + desplaçament
+SEEK_END:posicio_i/e = file_size + desplaçament
+
+
+
+
+
+

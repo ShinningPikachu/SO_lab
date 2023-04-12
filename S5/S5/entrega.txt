@@ -1,0 +1,98 @@
+PREGUNTA 35.¿Qué variables aparecen en la salida del nm de mem1_dynamic? ¿Qué dirección ocupa cada una? Indica a que región pertenece cada variable según la salida del nm y el tipo de variable (local o global).
+
+Aparece el variable globalArray, que está situado en la dirección 0000000000004040 y otros variables locales están situados en la stack en la dirección apartir de 0000000000003f90.
+
+PREGUNTA 36.Para los dos ejecutables, compilado estático y dinámico, observa su tamaño, la salida de los comandos nm y objdump ¿En qué se diferencian los dos ejecutables?
+
+Se ve claramente el tamaño del programa compilado en estático es mucho más grande, ocupa más espació, tiene más lineas de código, por lo tanto menos eficiente.
+
+PREGUNTA 37.Observa el contenido del fichero maps del /proc para cada proceso y apunta para cada región la dirección inicial, dirección final y etiqueta asociada. ¿Qué diferencia hay entre el maps de cada proceso?
+PREGUNTA 38.¿A qué región de las descritas en el maps pertenece cada variable y cada zona reservada con malloc? Apunta la dirección inicial, dirección final y el nombre de la región.
+
+maps de mem1_static:
+
+0400000-00401000 r--p 00000000 08:05 665006                             /home/jinheng/SO_lab/S5/S5/mem1_static
+00401000-00495000 r-xp 00001000 08:05 665006                             /home/jinheng/SO_lab/S5/S5/mem1_static
+00495000-004bc000 r--p 00095000 08:05 665006                             /home/jinheng/SO_lab/S5/S5/mem1_static
+004bd000-004c0000 r--p 000bc000 08:05 665006                             /home/jinheng/SO_lab/S5/S5/mem1_static
+004c0000-004c3000 rw-p 000bf000 08:05 665006                             /home/jinheng/SO_lab/S5/S5/mem1_static
+004c3000-004c5000 rw-p 00000000 00:00 0 
+01e3b000-01e5e000 rw-p 00000000 00:00 0                                  [heap]
+7ffdfe704000-7ffdfe725000 rw-p 00000000 00:00 0                          [stack]
+7ffdfe7a2000-7ffdfe7a6000 r--p 00000000 00:00 0                          [vvar]
+7ffdfe7a6000-7ffdfe7a8000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+maps de mem1_dynamic:
+
+556157aa0000-556157aa1000 r--p 00000000 08:05 664977                     
+/home/jinheng/SO_lab/S5/S5/mem1_dynamic
+556157aa1000-556157aa2000 r-xp 00001000 08:05 664977                     
+/home/jinheng/SO_lab/S5/S5/mem1_dynamic
+556157aa2000-556157aa3000 r--p 00002000 08:05 664977                     
+/home/jinheng/SO_lab/S5/S5/mem1_dynamic
+556157aa3000-556157aa4000 r--p 00002000 08:05 664977                     
+/home/jinheng/SO_lab/S5/S5/mem1_dynamic
+556157aa4000-556157aa5000 rw-p 00003000 08:05 664977                     
+/home/jinheng/SO_lab/S5/S5/mem1_dynamic
+556157aa5000-556157aa6000 rw-p 00000000 00:00 0 
+5561588ee000-55615890f000 rw-p 00000000 00:00 0                          
+[heap]
+7f439be53000-7f439be78000 r--p 00000000 08:05 788627                     
+/usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f439be78000-7f439bff0000 r-xp 00025000 08:05 788627                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f439bff0000-7f439c03a000 r--p 0019d000 08:05 788627                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f439c03a000-7f439c03b000 ---p 001e7000 08:05 788627                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f439c03b000-7f439c03e000 r--p 001e7000 08:05 788627                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f439c03e000-7f439c041000 rw-p 001ea000 08:05 788627                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f439c041000-7f439c047000 rw-p 00000000 00:00 0 
+7f439c05a000-7f439c05b000 r--p 00000000 08:05 788622                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f439c05b000-7f439c07e000 r-xp 00001000 08:05 788622                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f439c07e000-7f439c086000 r--p 00024000 08:05 788622                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f439c087000-7f439c088000 r--p 0002c000 08:05 788622                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f439c088000-7f439c089000 rw-p 0002d000 08:05 788622                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f439c089000-7f439c08a000 rw-p 00000000 00:00 0 
+7ffe15834000-7ffe15855000 rw-p 00000000 00:00 0                          [stack]
+7ffe1594a000-7ffe1594e000 r--p 00000000 00:00 0                          [vvar]
+7ffe1594e000-7ffe15950000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+El ejecutable dinámico contiene más direcciones al referir varias librerias dinámicas ya que no están en el fichero.
+
+En el programa mem1_dynamic, el variable globalArrey está situado en
+556157aa4000-556157aa5000 rw-p 00003000 08:05 664977                     
+/home/jinheng/SO_lab/S5/S5/mem1_dynamic[heap]
+y el variable localArrey está situado en 
+7ffe15834000-7ffe15855000 rw-p 00000000 00:00 0 [stack]
+
+En el programa mem1_static, el variable globalArrey está situado en 
+004c3000-004c5000 rw-p 00000000 00:00 0 [heap]
+y el localArrey está situado en 
+7ffdfe704000-7ffdfe725000 rw-p 00000000 00:00 0 [stack]
+
+PREGUNTA 39.Para cada ejecución apunta el número de mallocs hechos y la dirección inicial y final del heap que muestra el fichero maps del /proc. ¿Cambia el tamaño según el parámetro
+de entrada? ¿Por qué?
+
+fichero maps con parámetro 3:
+55e9052f0000-55e905311000 rw-p 00000000 00:00 0   
+[heap]
+
+fichero maps con parámetro 5:
+556b6a103000-556b6a124000 rw-p 00000000 00:00 0                           
+[heap]
+
+fichero maps con parámetro 100:
+555a8de63000-555a8dee7000 rw-p 00000000 00:00 0                          
+[heap]
+
+Depende del parámetro de entrada, el programa hace más mallocs y por lo tanto ocupa más espacio dentro de heap.
+
+
+PREGUNTA 40.¿Cuál es el tamaño del heap en este caso? Explica los resultados.
+
+
+
+PREGUNTA 41.Para cada ejecución apunta el número de sbrks hechos y la dirección inicial y final del heap que se muestra en el maps del  /proc. ¿Cambia el tamaño del heap respecto al observado en la pregunta 6? ¿Por qué?
+
+
+PREGUNTA 42.¿Qué error contiene el código del programa? ¿Por qué el programa no falla en las primeras iteraciones? Propón una alternativa a este código que evite que se genere la excepción, detectando, antes de que pase, que vamos a hacer un acceso fuera del espacio de direcciones.

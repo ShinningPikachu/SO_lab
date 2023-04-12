@@ -1,0 +1,9 @@
+PREGUNTA 67.¿Qué contiene el fichero al final de la ejecución?¿Contiene la salida del padre y 
+del hijo, o sólo la del padre? ¿Cómo se explica ese contenido? 
+
+En fichero final de ejecución contiene la salida del padre y del hijo, ya que ambas tienen la
+salida en la salida estándar.
+
+PREGUNTA 68.¿Acaba el programa padre? ¿y el hijo? ¿Por qué?
+
+No acaba ni el padre ni el hijo ya que el hijo tiene su salida aún abierta.

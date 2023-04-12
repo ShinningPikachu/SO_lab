@@ -1,0 +1,76 @@
+PREGUNTA 55.Apunta en el fichero “entrega.txt” los comandos que has utilizado en cada
+apartado. Además entrega el fichero “es1_v2.c” ¿Qué diferencias observas en las dos
+ejecuciones de strace? ¿Cuántas llamadas a sistema read ejecuta cada versión? ¿Qué
+influencia puede tener sobre el rendimiento de ambas versiones de código? ¿Por qué?
+
+	ps es1
+	./es1 > pts
+	strace –o salida_v2 –e read ./es1_v2 < es2.c
+	strace –o salida_v1 –e read ./es1 < es2.c
+
+	En las dos ejecuciones de strace se observa que el resultado mostrado por shell es lo mismo
+	pero el documento generado en el caso de es1_v2 es mucho más pequeño, es decir que hace menos
+	llamadas a sistema y por lo tanto el programa es más eficiente ya que evita muchas ejecuciones.
+		
+PREGUNTA 56.Explica las diferencias observadas en la salida del programa cuando el primer
+parámetro vale 0 o 1. ¿Para qué crees que sirve este parámetro?
+
+	Este parámetro sirve para indicar al programa si imprimir en shell un valor aleatorio en ascii o
+	en formato interno de int.
+
+PREGUNTA 57.Explica el motivo de los resultados observados dependiendo del formato
+fichero de entrada.
+	
+	El resultado es diferente ya que el programa es3 asume que las entradas son de formato de enteros
+	(int) y los valores de salida de es2 son dependientes a sus parámetros correspendientesl. 
+
+PREGUNTA 58.Explica las diferencias observadas entre la salida del programa es3 y es4. ¿Por
+qué la salida es inteligible para uno de los ficheros de entrada y no para el otro?
+	
+	Por que el programa de es3 es capaz de traducir el formato de enteros(int), por lo tanto imprime el
+	valor original de entrada de es2, en canvio, es4 solo imprime sus entrada tal como es y no traduce
+	los valores de es2.
+
+PREGUNTA 59.Escribe los valores que ha mostrado el script showCpuTime.sh para cada uno
+de los procesos y comenta las diferencias entre ellos en cuanto al consumo de cpu. ¿A qué se
+deben? Identifica las líneas de código de marcan la diferencia entre ellos
+
+	CMD                         %CPU     TIME
+	./es1                        0.0 00:00:00
+	./es5                        102 00:00:06
+	./es1                        0.0 00:00:00
+	./es5                        101 00:00:08
+	./es1                        0.0 00:00:00
+	./es5                        101 00:00:10
+	./es1                        0.0 00:00:00
+	./es5                        101 00:00:12
+	./es1                        0.0 00:00:00
+	./es5                        101 00:00:14
+	./es1                        0.0 00:00:00
+	./es5                        101 00:00:16
+	
+	Con el script showCpuTime.sh se ve que el tiempo de ejecución de es1 es casi nulo, pero el tiempo 
+	de es5 siempre es de 2s, y tambiem el programa es1 no ocupa cpu y es5 lo ocupa completamente, este
+	suceso es debido a que es5 es un programa con espera activa, pero es1 no lo es. Las lineas de codigo
+	que marca la diferencia es el while(1) del programa es5.
+	
+PREGUNTA 60.Anota en el fichero entrega.txt el resultado de ambas ejecuciones. Entrega el
+código programado en el fichero es6_v2.c
+	
+	En el primer caso, el programa acaba mostrando el valor de entrada
+PREGUNTA 61.¿Qué pasaría si usáramos el flag SA_RESTART en el sigaction? Repite las
+ejecuciones anteriores activando el flag SA_RESTART y anota el resultado en el fichero
+entrega.txt.
+
+PREGUNTA 62.¿Estaba ya en uso el major especificado en el código? En caso afirmativo, ¿qué
+driver lo estaba utilizando?
+
+PREGUNTA 63.Apunta la línea de la salida de lsmod correspondiente a myDriver1 y myDriver2. 
+
+PREGUNTA 64.Apunta la línea de comandos que has utilizado para crear el dispositivo.
+
+PREGUNTA 65.Anota en el fichero “entrega.txt” el resultado de la ejecución y explica el
+resultado obtenido.
+
+PREGUNTA 66.Anota el resultado de la ejecución. Explica el motivo de las diferencias
+observadas comparando la salida de este ejercicio con la de la apartado 5.

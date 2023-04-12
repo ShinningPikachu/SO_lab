@@ -1,0 +1,3 @@
+¿En qué orden se van a escribir los mensajes? ¿Podemos garantizar que será siempre el mismo? Justifica tu respuesta en un fichero de texto llamado “respuestas.txt”.
+
+Los mensajes no tienen un orden predeterminado, y no podemos garantizar su orden ya que los hijos mueren en un tiempo aleatorio.
